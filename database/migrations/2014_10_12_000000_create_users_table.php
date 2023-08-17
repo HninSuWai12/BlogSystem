@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->text('bio');
+            $table->text('bio')->nullable();
+            $table->enum('gender',['male','female','other'])->nullable();
+            $table->string('image')->nullable();
+            $table->enum('role',['admin','user'])->default('user');
+            $table->enum('status', ['pending', 'approved'])->default('pending');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

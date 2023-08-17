@@ -1,4 +1,7 @@
 @extends('welcome')
+@section('title1') 
+Register Medium
+@endsection
 @section('contact')
     <div class="vh-100 w-100 d-flex justify-content-center align-items-center">
         < <div class="container-wrapper">
@@ -53,6 +56,27 @@
             <span class="text-danger">{{ $message }}</span>
         @enderror
                         </div>
+
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1n" style="font-size: 1em">
+                                    Gender</label><br>
+                                    @foreach ($gender as $genderName=>$genderValue )
+                                    <div class="form-check">
+                                        <input type="radio" id="{{$genderValue}}" name="gender" class="form-check-input" value="{{$genderValue}}">
+                                        <label for="{{$genderValue}}" class="form-check-label">
+                                        {{$genderName}}
+                                        </label>
+                                    </div>
+                                        
+                                    @endforeach
+                               
+                            </div>
+                            @error('confirmPassword')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+                        </div>
                     </div>
                     <div class="d-flex flex-column mb-3">
                         <label for="bio" style="font-size: 1em" class="mb-2">Bio</label>
@@ -63,10 +87,20 @@
         @enderror
                     </div>
                     <button type="submit" class="w-auto border-0 fit-content px-3 py-2 bg-secondary text-light rounded">
-                        SignUp
+                        SignUp 
                     </button>
+                    <h3>OR</h3>
+                    <div class="d-flex flex-row mb-3 px-4 ">
+                        
+                        <button class="w-auto border-0 fit-content ms-4 px-3 py-2 bg-secondary text-light rounded">
+                            Login with Facebook
+                        </button>
+                       
+                        
+                    </div>
                 </form>
             </div>
+            
     </div>
     </div>
 @endsection

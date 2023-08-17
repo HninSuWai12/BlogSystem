@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+//use auth;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
     //register page
     public function index(){
-        return view('register');
+        $gender=User::getGender();
+        return view('register',compact('gender'));
     }
 
     //register user
@@ -20,26 +24,14 @@ class RegisterController extends Controller
         $this->ValidationCheck($request);
         $data=$this->requestData($request);
         User::create($data);
-        return redirect()->route('user.home');
+        return redirect()->route('loginPage');
 
     }
 
-    //user home
-    public function home(){
-        return view('page');
-    }
+   
+   
 
-    //Logout
-    public function logout(Request $request)
-{
-    Auth::logout();
-
-    $request->session()->invalidate();
-
-    $request->session()->regenerateToken();
-
-    return redirect()->route('welcome');
-}
+   
 
 
 
@@ -64,6 +56,7 @@ class RegisterController extends Controller
         return[
             'name'=>$request->name,
             'email'=>$request->email,
+            'gender'=>$request->gender,
             'password'=>Hash::make($request->password),
             'bio'=>$request->bio
 

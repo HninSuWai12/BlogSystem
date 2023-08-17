@@ -1,4 +1,7 @@
 @extends('welcome')
+@section('title1') 
+Medium
+@endsection
 @section('contact')
 
 <div class="container-fluid bg-warning border-bottom border-dark">
@@ -62,16 +65,26 @@
             </div>
         </div>
         <div class="float-lg-start float-sm-none col-md-6 col-sm mt-3">
-            <a href="{{ route('blogPage') }}">
+            
+                @foreach ($data as $item)
+                <a href="{{ route('blogPage') }}">
                 <div class="row">
                     <div class="col-8 mt-3">
                         <div class="d-flex justify-content-start">
-                            <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
+                            {{-- <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
+                                class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" /> --}}
+
+                                @if ($item->image != null)
+                                <img src="{{asset('storage/'.$item->user_image)}}"
+                                class="rounded-circle" width="20px" height="20px" />
+                                    @else
+                                    <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
                                 class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" />
+                                @endif
                             <div class="px-2">
-                                <h4 class="author">Dr. Tom Frieden</h4>
+                                <h4 class="author">{{$item->user_name}}</h4>
                                 <h6 class="content-ttl mb-2 mt-2">
-                                    Understanding Long Covid
+                                    {{$item->title}}
                                 </h6>
                                 <p class="content mb-2">Ukraine War, 19 December 2022</p>
                                 <span class="blog-date">Dec 20 · 9 min read ·</span>
@@ -92,138 +105,13 @@
                         </div>
                     </div>
                     <div class="col-4 mt-3">
-                        <img src="https://miro.medium.com/fit/c/250/168/0*Nz897vaKH2yJhSQJ" class="img" />
+                        <img src="{{asset('storage/'.$item->image)}}" class="img" />
                     </div>
                 </div>
             </a>
-            <div class="row">
-                <div class="col-8 mt-3">
-                    <div class="d-flex justify-content-start">
-                        <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
-                            class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" />
-                        <div class="px-2">
-                            <h4 class="author">Dr. Tom Frieden</h4>
-                            <h6 class="content-ttl mb-2 mt-2">
-                                Understanding Long Covid
-                            </h6>
-                            <p class="content mb-2">Ukraine War, 19 December 2022</p>
-                            <span class="blog-date">Dec 20 · 9 min read ·</span>
-                            <span class="cat">Long Covid</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path
-                                    d="M12.4 12.77l-1.81 4.99a.63.63 0 0 1-1.18 0l-1.8-4.99a.63.63 0 0 0-.38-.37l-4.99-1.81a.62.62 0 0 1 0-1.18l4.99-1.8a.63.63 0 0 0 .37-.38l1.81-4.99a.63.63 0 0 1 1.18 0l1.8 4.99a.63.63 0 0 0 .38.37l4.99 1.81a.63.63 0 0 1 0 1.18l-4.99 1.8a.63.63 0 0 0-.37.38z"
-                                    fill="#FFC017"></path>
-                            </svg>
-                            <a class="content-btn" rel="noopener follow" href="details.html"><svg width="25"
-                                    height="25" viewBox="0 0 25 25" fill="none" class="mf">
-                                    <path
-                                        d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                                        fill="#292929"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mt-3">
-                    <img src="https://miro.medium.com/fit/c/250/168/0*Nz897vaKH2yJhSQJ" class="img" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 mt-3">
-                    <div class="d-flex justify-content-start">
-                        <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
-                            class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" />
-                        <div class="px-2">
-                            <h4 class="author">Dr. Tom Frieden</h4>
-                            <h6 class="content-ttl mb-2 mt-2">
-                                Understanding Long Covid
-                            </h6>
-                            <p class="content mb-2">Ukraine War, 19 December 2022</p>
-                            <span class="blog-date">Dec 20 · 9 min read ·</span>
-                            <span class="cat">Long Covid</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path
-                                    d="M12.4 12.77l-1.81 4.99a.63.63 0 0 1-1.18 0l-1.8-4.99a.63.63 0 0 0-.38-.37l-4.99-1.81a.62.62 0 0 1 0-1.18l4.99-1.8a.63.63 0 0 0 .37-.38l1.81-4.99a.63.63 0 0 1 1.18 0l1.8 4.99a.63.63 0 0 0 .38.37l4.99 1.81a.63.63 0 0 1 0 1.18l-4.99 1.8a.63.63 0 0 0-.37.38z"
-                                    fill="#FFC017"></path>
-                            </svg>
-                            <a class="content-btn" rel="noopener follow" href="details.html"><svg width="25"
-                                    height="25" viewBox="0 0 25 25" fill="none" class="mf">
-                                    <path
-                                        d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                                        fill="#292929"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mt-3">
-                    <img src="https://miro.medium.com/fit/c/250/168/0*Nz897vaKH2yJhSQJ" class="img" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 mt-3">
-                    <div class="d-flex justify-content-start">
-                        <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
-                            class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" />
-                        <div class="px-2">
-                            <h4 class="author">Dr. Tom Frieden</h4>
-                            <h6 class="content-ttl mb-2 mt-2">
-                                Understanding Long Covid
-                            </h6>
-                            <p class="content mb-2">Ukraine War, 19 December 2022</p>
-                            <span class="blog-date">Dec 20 · 9 min read ·</span>
-                            <span class="cat">Long Covid</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path
-                                    d="M12.4 12.77l-1.81 4.99a.63.63 0 0 1-1.18 0l-1.8-4.99a.63.63 0 0 0-.38-.37l-4.99-1.81a.62.62 0 0 1 0-1.18l4.99-1.8a.63.63 0 0 0 .37-.38l1.81-4.99a.63.63 0 0 1 1.18 0l1.8 4.99a.63.63 0 0 0 .38.37l4.99 1.81a.63.63 0 0 1 0 1.18l-4.99 1.8a.63.63 0 0 0-.37.38z"
-                                    fill="#FFC017"></path>
-                            </svg>
-                            <a class="content-btn" rel="noopener follow" href="details.html"><svg width="25"
-                                    height="25" viewBox="0 0 25 25" fill="none" class="mf">
-                                    <path
-                                        d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                                        fill="#292929"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mt-3">
-                    <img src="https://miro.medium.com/fit/c/250/168/0*Nz897vaKH2yJhSQJ" class="img" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 mt-3">
-                    <div class="d-flex justify-content-start">
-                        <img src="https://miro.medium.com/fit/c/25/25/1*oTq5RWcSwzoDiuAO_OBhaw.jpeg"
-                            class="rounded-circle" alt="Cinque Terre" width="20px" height="20px" />
-                        <div class="px-2">
-                            <h4 class="author">Dr. Tom Frieden</h4>
-                            <h6 class="content-ttl mb-2 mt-2">
-                                Understanding Long Covid
-                            </h6>
-                            <p class="content mb-2">Ukraine War, 19 December 2022</p>
-                            <span class="blog-date">Dec 20 · 9 min read ·</span>
-                            <span class="cat">Long Covid</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path
-                                    d="M12.4 12.77l-1.81 4.99a.63.63 0 0 1-1.18 0l-1.8-4.99a.63.63 0 0 0-.38-.37l-4.99-1.81a.62.62 0 0 1 0-1.18l4.99-1.8a.63.63 0 0 0 .37-.38l1.81-4.99a.63.63 0 0 1 1.18 0l1.8 4.99a.63.63 0 0 0 .38.37l4.99 1.81a.63.63 0 0 1 0 1.18l-4.99 1.8a.63.63 0 0 0-.37.38z"
-                                    fill="#FFC017"></path>
-                            </svg>
-                            <a class="content-btn" rel="noopener follow" href="details.html"><svg width="25"
-                                    height="25" viewBox="0 0 25 25" fill="none" class="mf">
-                                    <path
-                                        d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                                        fill="#292929"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mt-3">
-                    <img src="https://miro.medium.com/fit/c/250/168/0*Nz897vaKH2yJhSQJ" class="img" />
-                </div>
-            </div>
+                @endforeach
+            
+            
         </div>
     </div>
 </div>
