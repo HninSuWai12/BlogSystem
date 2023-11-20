@@ -18,16 +18,6 @@
 @endsection
 @section('post')
 <div class="w-100 d-flex justify-content-center py-4">
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-  <p>This is Link Testing</p>
-
     <div class="container-wrapper m-sm-2">
       <div
         class="w-80 w-sm-100 mx-auto d-flex flex-wrap col-12 border-1 border-bottom"
